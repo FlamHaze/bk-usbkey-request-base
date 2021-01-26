@@ -3,7 +3,7 @@
 ## 1.1. 导入
 ### 1.1.1. 浏览器中使用
 
-```javascript
+```html
 <script src="./index-iife-1.0.0.min.js"></script>
 ```
 

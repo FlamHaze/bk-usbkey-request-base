@@ -7,16 +7,13 @@
 <body>
 
 <button id="btn">点我触发</button>
-<button id="add">点我增加</button>
 
-<script src="node_modules/es6-promise/dist/es6-promise.min.js"></script>
-<script src="node_modules/es6-promise/dist/es6-promise.auto.min.js"></script>
-<script src="dist/index-iife1.0.5.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/es6-promise@4/dist/es6-promise.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/es6-promise@4/dist/es6-promise.auto.js"></script> 
+<script src="../dist/bk-usbkey-cross-request-iife-1.0.0.min.js"></script>
 <script>
     window.onload = function () {
-	  document.getElementById("add").onclick = function (){
-		this.innerText="sdgfdfgdfhgfghfgh"
-	  }
+
         document.getElementById("btn").onclick = function () {
             var test = bk_crossFormRequest([
                 {
@@ -25,7 +22,7 @@
                         crosFlag: 1
                     },
                     nameSign: "init2",
-                    timeOut: 10000
+                    timeOut: 3000
                 }
             ])["catch"](function (err) {
                 console.log(err);
