@@ -1,5 +1,5 @@
 {
-  "name": "bk-usbkey-cross-request",
+  "name": "bk-usbkey-request",
   "version": "1.0.0",
   "description": "博雅中科usbkey服务跨域解决方案",
   "author": "苏林鑫 <15210204903@163.com>",
@@ -17,18 +17,20 @@
   "license": "ISC",
   "repository": {
     "type": "git",
-    "url": "https://github.com/SuLinXin66/bk-usbkey-cross-request"
+    "url": "https://github.com/SuLinXin66/bk-usbkey-request"
   },
   "bugs": {
-    "url": "https://github.com/SuLinXin66/bk-usbkey-cross-request/issus"
+    "url": "https://github.com/SuLinXin66/bk-usbkey-request/issus"
   },
-  "homepage": "https://github.com/SuLinXin66/bk-usbkey-cross-request",
+  "homepage": "https://github.com/SuLinXin66/bk-usbkey-request",
   "keywords": [
     "cross",
     "cross-request",
     "bk",
     "usbkey",
-    "cross-form"
+    "cross-domain",
+    "domain-request",
+    "request"
   ],
   "devDependencies": {
     "rollup": "^2.38.0",

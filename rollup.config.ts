@@ -8,7 +8,7 @@ export default [
     {
         input: "./dist/lib/index.js",
         output: {
-            file: `./dist/bk-usbkey-cross-request-amd-${pkg.version}.min.js`,
+            file: `./dist/bk-usbkey-request-amd-${pkg.version}.min.js`,
             format: "amd"
         },
         plugins: [
@@ -19,7 +19,7 @@ export default [
     {
         input: "./dist/lib/index.js",
         output: {
-            file: `./dist/bk-usbkey-cross-request-cjs-${pkg.version}.min.js`,
+            file: `./dist/bk-usbkey-request-cjs-${pkg.version}.min.js`,
             format: "cjs"
         },
         plugins: [
@@ -30,7 +30,7 @@ export default [
     {
         input: "./dist/lib/index.js",
         output: {
-            file: `./dist/bk-usbkey-cross-request-iife-${pkg.version}.min.js`,
+            file: `./dist/bk-usbkey-request-iife-${pkg.version}.min.js`,
             name: "bk_crossFormRequest",
             format: "iife"
         },
@@ -42,7 +42,7 @@ export default [
     {
         input: "./dist/lib/index.js",
         output: {
-            file: `./dist/bk-usbkey-cross-request-umd-${pkg.version}.min.js`,
+            file: `./dist/bk-usbkey-request-umd-${pkg.version}.min.js`,
             name: "bk_crossFormRequest",
             format: "umd"
         },
