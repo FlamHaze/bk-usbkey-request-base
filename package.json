@@ -1,0 +1,50 @@
+{
+  "name": "bk-usbkey-cross-request",
+  "version": "1.0.0",
+  "description": "博雅中科usbkey服务跨域解决方案",
+  "author": "苏林鑫 <15210204903@163.com>",
+  "main": "./dist/lib/index.js",
+  "types": "./dist/types/index.d.ts",
+  "scripts": {
+    "docs": "typedoc --out docs --target es6 --theme minimal --mode file src",
+    "prebuild": "rm -rf dist docs",
+    "rollup:es": "rollup ./dist/lib/index.js -o ./dist/index-es-1.0.0.js -f es",
+    "rollup:other": "rollup -c rollup.config.ts",
+    "build": "tsc && yarn run docs",
+    "build:win": "tsc && npm run rollup:other",
+    "postbuild": "npm run rollup:other"
+  },
+  "files": [
+    "dist",
+    "docs"
+  ],
+  "license": "ISC",
+  "devDependencies": {
+    "@types/jest": "^24.0.15",
+    "es6-promise": "^4.2.8",
+    "jest": "^24.8.0",
+    "rollup": "^1.17.0",
+    "rollup-plugin-commonjs": "^10.0.1",
+    "rollup-plugin-json": "^4.0.0",
+    "rollup-plugin-node-resolve": "^5.2.0",
+    "rollup-plugin-uglify": "^6.0.2",
+    "ts-jest": "^24.0.2",
+    "typedoc": "^0.14.2",
+    "typescript": "^3.5.3"
+  },
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "bugs": {
+    "url": ""
+  },
+  "homepage": "",
+  "keywords": [
+    "cross",
+    "cross-request",
+    "bk",
+    "usbkey",
+    "cross-form"
+  ]
+}
