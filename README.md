@@ -288,5 +288,5 @@ async function test(){
 
 # <div id="d5">其他</div>
 
-<a href="https://sulinxin66.github.io/bk-usbkey-request-base-base/">API文档</a>
+<a href="https://sulinxin66.github.io/bk-usbkey-request-base/">API文档</a>
 
