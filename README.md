@@ -31,7 +31,7 @@
 ###  npm中使用
 
 ```js
-npm install --save @bk/usbkey-request-base
+npm install --save @byzk/usbkey-request-base
 ```
 
 
@@ -39,7 +39,7 @@ npm install --save @bk/usbkey-request-base
 ### yarn中使用
 
 ```js
-yarn add @bk/usbkey-request-base
+yarn add @byzk/usbkey-request-base
 ```
 
 
@@ -73,7 +73,7 @@ yarn add @bk/usbkey-request-base
 ## CommonJS规范中使用
 
 ```javascript
-const bkUsbkeyReqBase = require('@bk/usbkey-request-base').default;
+const bkUsbkeyReqBase = require('@byzk/usbkey-request-base').default;
 bkUsbkeyReqBase([
   {
     url: "https://127.0.0.1:8000/api/EPSAPP_Initialize",   
@@ -95,7 +95,7 @@ bkUsbkeyReqBase([
 ## ES6规范中使用
 
 ```javascript
-import bkUsbkeyReqBase from "@bk/usbkey-request-base"; 
+import bkUsbkeyReqBase from "@byzk/usbkey-request-base"; 
 bkUsbkeyReqBase([
   {
     url: "https://127.0.0.1:8000/api/EPSAPP_Initialize",   
@@ -236,7 +236,7 @@ interface CrossResponseErr {
 ## 使用async/await
 
 ```typescript
-import bkUsbkeyReqBase from "@bk/usbkey-request-base"; 
+import bkUsbkeyReqBase from "@byzk/usbkey-request-base"; 
 async function test(){
   try {
     const getCertResult = await bkUsbkeyReqBase({

@@ -1,6 +1,6 @@
 {
-  "name": "@bk/usbkey-request-base",
-  "version": "1.0.0",
+  "name": "@byzk/usbkey-request-base",
+  "version": "1.0.1",
   "description": "博雅中科usbkey服务跨域解决方案",
   "author": "苏林鑫 <15210204903@163.com>",
   "main": "./dist/lib/index.js",
