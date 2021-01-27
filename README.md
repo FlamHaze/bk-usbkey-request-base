@@ -53,7 +53,7 @@ yarn add bk-usbkey-request-base
 <script src="https://cdn.jsdelivr.net/npm/es6-promise@4/dist/es6-promise.auto.js"></script> 
 <script src="https://raw.githubusercontent.com/SuLinXin66/bk-usbkey-request-base/master/dist/bk-usbkey-request-base-iife-1.0.0.min.js"></script>
 <script>
-	bkUsbkeyReqBase([
+  bkUsbkeyReqBase([
     {
       url: "https://127.0.0.1:8000/api/EPSAPP_Initialize",   
       data: {
@@ -95,8 +95,8 @@ bkUsbkeyReqBase([
 ## ES6规范中使用
 
 ```javascript
-import bkUsbkeyReq from "bk-usbkey-request-base"; 
-bkUsbkeyReq([
+import bkUsbkeyReqBase from "bk-usbkey-request-base"; 
+bkUsbkeyReqBase([
   {
     url: "https://127.0.0.1:8000/api/EPSAPP_Initialize",   
     data: {
@@ -127,7 +127,7 @@ bkUsbkeyReqBase (params: CrossSendData | Array<CrossSendData>, errorJudgeFun?: (
 	errorJudgeFun?: 错误判断方法, 传入usbkey响应数据，返回是否有错
 方法返回值:
 	请求结果
-发起请求到usbkey本地服务, 请求参数`CrossSendData`请参考<a href="#d3_param">请求参数</a>, 返回参数`CrossResponse`请参考<a href="d3_return">返回参数</a>
+发起请求到usbkey本地服务, 请求参数`CrossSendData`请参考<a href="#d3_param">请求参数</a>, 返回参数`CrossResponse`请参考<a href="#d3_return">返回参数</a>
 
 
 
@@ -236,17 +236,17 @@ interface CrossResponseErr {
 ## 使用async/await
 
 ```typescript
-import bkUsbkeyReq from "bk-usbkey-request-base"; 
+import bkUsbkeyReqBase from "bk-usbkey-request-base"; 
 async function test(){
   try {
-    const getCertResult = await bkUsbkeyReq({
+    const getCertResult = await bkUsbkeyReqBase({
       url: "http://127.0.0.1/test/getCert",
       nameSign: "getCert"
     })
     
     const certInfo = getCertResult["getCert"].data.jsonData.result;
     
-    const certInfoResult = await bkUsbkeyReq([
+    const certInfoResult = await bkUsbkeyReqBase([
       {
         url: "http://127.0.0.1/test/getCertInfoByNo",
         nameSign: "certNo",
