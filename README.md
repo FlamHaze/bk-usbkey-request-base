@@ -1,4 +1,4 @@
-博雅中科Usbkey服务对应的js调用方式，主要解决跨域问题并为集成客户端提供简单可靠的调用方式
+博雅中科Usbkey服务对应的js调用方式，主要解决跨域问题并为集成客户端提供简单可靠的调用方式， 此库为请求解决的基础调用库.
 
 # 目录
 
@@ -286,7 +286,7 @@ async function test(){
 
 
 
-# <div id="#d5">其他</div>
+# <div id="d5">其他</div>
 
 <a href="https://sulinxin66.github.io/bk-usbkey-request-base-base/">API文档</a>
 

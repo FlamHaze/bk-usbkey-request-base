@@ -100,7 +100,7 @@
 <span style="color: #800000">&lt;script</span><span style="color: #000000FF"> </span><span style="color: #FF0000">src</span><span style="color: #000000FF">=</span><span style="color: #0000FF">&quot;https://cdn.jsdelivr.net/npm/es6-promise@4/dist/es6-promise.auto.js&quot;</span><span style="color: #800000">&gt;&lt;/script&gt;</span><span style="color: #000000"> </span>
 <span style="color: #800000">&lt;script</span><span style="color: #000000FF"> </span><span style="color: #FF0000">src</span><span style="color: #000000FF">=</span><span style="color: #0000FF">&quot;https://raw.githubusercontent.com/SuLinXin66/bk-usbkey-request-base/master/dist/bk-usbkey-request-base-iife-1.0.0.min.js&quot;</span><span style="color: #800000">&gt;&lt;/script&gt;</span>
 <span style="color: #800000">&lt;script&gt;</span>
-<span style="color: #000000FF">    </span><span style="color: #795E26">bkUsbkeyReq</span><span style="color: #000000FF">([</span>
+<span style="color: #000000FF">  </span><span style="color: #795E26">bkUsbkeyReqBase</span><span style="color: #000000FF">([</span>
 <span style="color: #000000FF">    {</span>
 <span style="color: #000000FF">      </span><span style="color: #001080">url:</span><span style="color: #000000FF"> </span><span style="color: #A31515">&quot;https://127.0.0.1:8000/api/EPSAPP_Initialize&quot;</span><span style="color: #000000FF">,   </span>
 <span style="color: #000000FF">      </span><span style="color: #001080">data:</span><span style="color: #000000FF"> {</span>
@@ -117,8 +117,8 @@
 				<a href="#commonjs规范中使用" id="commonjs规范中使用" style="color: inherit; text-decoration: none;">
 					<h2>CommonJS规范中使用</h2>
 				</a>
-				<pre><code class="language-javascript"><span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">bkUsbkeyReq</span><span style="color: #000000"> = </span><span style="color: #795E26">require</span><span style="color: #000000">(</span><span style="color: #A31515">&#039;bk-usbkey-request-base&#039;</span><span style="color: #000000">).</span><span style="color: #001080">default</span><span style="color: #000000">;</span>
-<span style="color: #795E26">bkUsbkeyReq</span><span style="color: #000000">([</span>
+				<pre><code class="language-javascript"><span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">bkUsbkeyReqBase</span><span style="color: #000000"> = </span><span style="color: #795E26">require</span><span style="color: #000000">(</span><span style="color: #A31515">&#039;bk-usbkey-request-base&#039;</span><span style="color: #000000">).</span><span style="color: #001080">default</span><span style="color: #000000">;</span>
+<span style="color: #795E26">bkUsbkeyReqBase</span><span style="color: #000000">([</span>
 <span style="color: #000000">  {</span>
 <span style="color: #000000">    </span><span style="color: #001080">url:</span><span style="color: #000000"> </span><span style="color: #A31515">&quot;https://127.0.0.1:8000/api/EPSAPP_Initialize&quot;</span><span style="color: #000000">,   </span>
 <span style="color: #000000">    </span><span style="color: #001080">data:</span><span style="color: #000000"> {</span>
@@ -136,8 +136,8 @@
 				<a href="#es6规范中使用" id="es6规范中使用" style="color: inherit; text-decoration: none;">
 					<h2>ES6规范中使用</h2>
 				</a>
-				<pre><code class="language-javascript"><span style="color: #AF00DB">import</span><span style="color: #000000"> </span><span style="color: #001080">bkUsbkeyReq</span><span style="color: #000000"> </span><span style="color: #AF00DB">from</span><span style="color: #000000"> </span><span style="color: #A31515">&quot;bk-usbkey-request-base&quot;</span><span style="color: #000000">; </span>
-<span style="color: #795E26">bkUsbkeyReq</span><span style="color: #000000">([</span>
+				<pre><code class="language-javascript"><span style="color: #AF00DB">import</span><span style="color: #000000"> </span><span style="color: #001080">bkUsbkeyReqBase</span><span style="color: #000000"> </span><span style="color: #AF00DB">from</span><span style="color: #000000"> </span><span style="color: #A31515">&quot;bk-usbkey-request-base&quot;</span><span style="color: #000000">; </span>
+<span style="color: #795E26">bkUsbkeyReqBase</span><span style="color: #000000">([</span>
 <span style="color: #000000">  {</span>
 <span style="color: #000000">    </span><span style="color: #001080">url:</span><span style="color: #000000"> </span><span style="color: #A31515">&quot;https://127.0.0.1:8000/api/EPSAPP_Initialize&quot;</span><span style="color: #000000">,   </span>
 <span style="color: #000000">    </span><span style="color: #001080">data:</span><span style="color: #000000"> {</span>
@@ -158,14 +158,14 @@
 				<a href="#请求方法" id="请求方法" style="color: inherit; text-decoration: none;">
 					<h2>请求方法</h2>
 				</a>
-				<pre><code class="language-typescript"><span style="color: #795E26">bkUsbkeyReq</span><span style="color: #000000"> (</span><span style="color: #001080">params</span><span style="color: #000000">: </span><span style="color: #001080">CrossSendData</span><span style="color: #000000"> | </span><span style="color: #267F99">Array</span><span style="color: #000000">&lt;</span><span style="color: #001080">CrossSendData</span><span style="color: #000000">&gt;, </span><span style="color: #001080">errorJudgeFun</span><span style="color: #000000">?: (</span><span style="color: #001080">jsonData</span><span style="color: #000000">: </span><span style="color: #267F99">any</span><span style="color: #000000">, </span><span style="color: #001080">strData</span><span style="color: #000000">: </span><span style="color: #267F99">string</span><span style="color: #000000">) </span><span style="color: #0000FF">=&gt;</span><span style="color: #000000"> </span><span style="color: #001080">boolean</span><span style="color: #000000">): </span><span style="color: #267F99">Promise</span><span style="color: #000000">&lt;</span><span style="color: #001080">CrossResponseMap</span><span style="color: #000000">&lt;</span><span style="color: #001080">CrossResponse</span><span style="color: #000000">&gt;&gt; | </span><span style="color: #0000FF">null</span><span style="color: #000000">;</span>
+				<pre><code class="language-typescript"><span style="color: #795E26">bkUsbkeyReqBase</span><span style="color: #000000"> (</span><span style="color: #001080">params</span><span style="color: #000000">: </span><span style="color: #001080">CrossSendData</span><span style="color: #000000"> | </span><span style="color: #267F99">Array</span><span style="color: #000000">&lt;</span><span style="color: #001080">CrossSendData</span><span style="color: #000000">&gt;, </span><span style="color: #001080">errorJudgeFun</span><span style="color: #000000">?: (</span><span style="color: #001080">jsonData</span><span style="color: #000000">: </span><span style="color: #267F99">any</span><span style="color: #000000">, </span><span style="color: #001080">strData</span><span style="color: #000000">: </span><span style="color: #267F99">string</span><span style="color: #000000">) </span><span style="color: #0000FF">=&gt;</span><span style="color: #000000"> </span><span style="color: #001080">boolean</span><span style="color: #000000">): </span><span style="color: #267F99">Promise</span><span style="color: #000000">&lt;</span><span style="color: #001080">CrossResponseMap</span><span style="color: #000000">&lt;</span><span style="color: #001080">CrossResponse</span><span style="color: #000000">&gt;&gt; | </span><span style="color: #0000FF">null</span><span style="color: #000000">;</span>
 </code></pre>
 				<p>方法参数:
 					params: 请求参数
 					errorJudgeFun?: 错误判断方法, 传入usbkey响应数据，返回是否有错
 					方法返回值:
 					请求结果
-				发起请求到usbkey本地服务, 请求参数<code>CrossSendData</code>请参考<a href="#d3_param">请求参数</a>, 返回参数<code>CrossResponse</code>请参考<a href="d3_return">返回参数</a></p>
+				发起请求到usbkey本地服务, 请求参数<code>CrossSendData</code>请参考<a href="#d3_param">请求参数</a>, 返回参数<code>CrossResponse</code>请参考<a href="#d3_return">返回参数</a></p>
 				<a href="#请求参数" id="请求参数" style="color: inherit; text-decoration: none;">
 					<h2><div id="d3_param">请求参数</div></h2>
 				</a>
@@ -258,17 +258,17 @@
 				<a href="#使用asyncawait" id="使用asyncawait" style="color: inherit; text-decoration: none;">
 					<h2>使用async/await</h2>
 				</a>
-				<pre><code class="language-typescript"><span style="color: #AF00DB">import</span><span style="color: #000000"> </span><span style="color: #001080">bkUsbkeyReq</span><span style="color: #000000"> </span><span style="color: #AF00DB">from</span><span style="color: #000000"> </span><span style="color: #A31515">&quot;bk-usbkey-request-base&quot;</span><span style="color: #000000">; </span>
+				<pre><code class="language-typescript"><span style="color: #AF00DB">import</span><span style="color: #000000"> </span><span style="color: #001080">bkUsbkeyReqBase</span><span style="color: #000000"> </span><span style="color: #AF00DB">from</span><span style="color: #000000"> </span><span style="color: #A31515">&quot;bk-usbkey-request-base&quot;</span><span style="color: #000000">; </span>
 <span style="color: #0000FF">async</span><span style="color: #000000"> </span><span style="color: #0000FF">function</span><span style="color: #000000"> </span><span style="color: #795E26">test</span><span style="color: #000000">(){</span>
 <span style="color: #000000">  </span><span style="color: #AF00DB">try</span><span style="color: #000000"> {</span>
-<span style="color: #000000">    </span><span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">getCertResult</span><span style="color: #000000"> = </span><span style="color: #AF00DB">await</span><span style="color: #000000"> </span><span style="color: #795E26">bkUsbkeyReq</span><span style="color: #000000">({</span>
+<span style="color: #000000">    </span><span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">getCertResult</span><span style="color: #000000"> = </span><span style="color: #AF00DB">await</span><span style="color: #000000"> </span><span style="color: #795E26">bkUsbkeyReqBase</span><span style="color: #000000">({</span>
 <span style="color: #000000">      </span><span style="color: #001080">url:</span><span style="color: #000000"> </span><span style="color: #A31515">&quot;http://127.0.0.1/test/getCert&quot;</span><span style="color: #000000">,</span>
 <span style="color: #000000">      </span><span style="color: #001080">nameSign:</span><span style="color: #000000"> </span><span style="color: #A31515">&quot;getCert&quot;</span>
 <span style="color: #000000">    })</span>
 
 <span style="color: #000000">    </span><span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">certInfo</span><span style="color: #000000"> = </span><span style="color: #001080">getCertResult</span><span style="color: #000000">[</span><span style="color: #A31515">&quot;getCert&quot;</span><span style="color: #000000">].</span><span style="color: #001080">data</span><span style="color: #000000">.</span><span style="color: #001080">jsonData</span><span style="color: #000000">.</span><span style="color: #001080">result</span><span style="color: #000000">;</span>
 
-<span style="color: #000000">    </span><span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">certInfoResult</span><span style="color: #000000"> = </span><span style="color: #AF00DB">await</span><span style="color: #000000"> </span><span style="color: #795E26">bkUsbkeyReq</span><span style="color: #000000">([</span>
+<span style="color: #000000">    </span><span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">certInfoResult</span><span style="color: #000000"> = </span><span style="color: #AF00DB">await</span><span style="color: #000000"> </span><span style="color: #795E26">bkUsbkeyReqBase</span><span style="color: #000000">([</span>
 <span style="color: #000000">      {</span>
 <span style="color: #000000">        </span><span style="color: #001080">url:</span><span style="color: #000000"> </span><span style="color: #A31515">&quot;http://127.0.0.1/test/getCertInfoByNo&quot;</span><span style="color: #000000">,</span>
 <span style="color: #000000">        </span><span style="color: #001080">nameSign:</span><span style="color: #000000"> </span><span style="color: #A31515">&quot;certNo&quot;</span><span style="color: #000000">,</span>
@@ -306,7 +306,7 @@
 <span style="color: #000000">}</span>
 </code></pre>
 				<a href="#其他" id="其他" style="color: inherit; text-decoration: none;">
-					<h1><div id="#d5">其他</div></h1>
+					<h1><div id="d5">其他</div></h1>
 				</a>
 				<p><a href="https://sulinxin66.github.io/bk-usbkey-request-base-base/">API文档</a></p>
 			</div>
