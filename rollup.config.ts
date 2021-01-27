@@ -8,7 +8,7 @@ export default [
     {
         input: "./dist/lib/index.js",
         output: {
-            file: `./dist/bk-usbkey-request-amd-${pkg.version}.min.js`,
+            file: `./dist/bk-usbkey-request-base-amd-${pkg.version}.min.js`,
             format: "amd"
         },
         plugins: [
@@ -19,7 +19,7 @@ export default [
     {
         input: "./dist/lib/index.js",
         output: {
-            file: `./dist/bk-usbkey-request-cjs-${pkg.version}.min.js`,
+            file: `./dist/bk-usbkey-request-base-cjs-${pkg.version}.min.js`,
             format: "cjs"
         },
         plugins: [
@@ -30,8 +30,8 @@ export default [
     {
         input: "./dist/lib/index.js",
         output: {
-            file: `./dist/bk-usbkey-request-iife-${pkg.version}.min.js`,
-            name: "bk_crossFormRequest",
+            file: `./dist/bk-usbkey-request-base-iife-${pkg.version}.min.js`,
+            name: "bkUsbkeyRequestBase",
             format: "iife"
         },
         plugins: [
@@ -42,8 +42,8 @@ export default [
     {
         input: "./dist/lib/index.js",
         output: {
-            file: `./dist/bk-usbkey-request-umd-${pkg.version}.min.js`,
-            name: "bk_crossFormRequest",
+            file: `./dist/bk-usbkey-request-base-umd-${pkg.version}.min.js`,
+            name: "bkUsbkeyRequestBase",
             format: "umd"
         },
         plugins: [
@@ -59,6 +59,6 @@ export default [
 // // },
 // {
 //     file: `./dist/index-umd-${pkg.version}.min.js`,
-//         name: "bk_crossFormRequest",
+//         name: "bkUsbkeyRequestBase",
 //     format: "umd"
 // }

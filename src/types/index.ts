@@ -6,7 +6,7 @@ type CrossRequestType = 'GET' | 'get' | 'POST' | 'post';
 export interface CrossSendData {
     // url
     url: string
-    // 方法名称签名
+    // 方法名称签名·
     nameSign: string
     // 超时时间
     timeOut?: number

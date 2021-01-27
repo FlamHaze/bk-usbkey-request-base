@@ -65,7 +65,8 @@ function addFormCalc() {
     var formCalcEle = document.getElementById(FORM_CALC_ID);
     if (formCalcEle) {
         var nowNumber = parseInt(formCalcEle.value);
-        formCalcEle.value = (nowNumber + 1);
+        formCalcEle.value = (nowNumber +
+            1);
         return nowNumber + 1;
     }
     else {
@@ -89,7 +90,8 @@ function subOneFormCalc() {
             document.removeChild(formCalcEle);
             return;
         }
-        formCalcEle.value = (nowNumber - 1);
+        formCalcEle.value = (nowNumber -
+            1);
     }
 }
 exports.subOneFormCalc = subOneFormCalc;
@@ -104,11 +106,17 @@ function addForm(params, formName) {
     form.method = params.method.toUpperCase();
     form.style.display = "none";
     for (var key in params.data) {
-        var input = document.createElement("input");
-        input.name = key;
-        input.value = params.data[key];
-        form.appendChild(input);
+        if (key == "crosFlag") {
+            continue;
+        }
+        var input_1 = document.createElement("input");
+        input_1.name = key;
+        input_1.value = params.data[key];
+        form.appendChild(input_1);
     }
+    var input = document.createElement("input");
+    input.name = "crosFlag";
+    input.value = "1";
     form.className = exports.FORM_CLASSNAME;
     form.name = formName;
     form.setAttribute(FORM_NAME_SIGN, params.nameSign);
@@ -136,33 +144,34 @@ function operateForm(errorJudgeFun, formName, isNoFirst, result) {
     var iframe = document.getElementById(exports.IFRAME_ID);
     if (!iframe) {
         // throw new CrossFormResponseError("未找到访问目标，请刷新页面后重新尝试!");
-        return new Promise((function (resolve, reject) {
+        return new Promise(function (resolve, reject) {
             reject(utils_1.createCrossResponseError({
                 code: "NO_REQUEST_TARGET_IFRAME",
                 message: "目标iframe有可能已被删除,请刷新页面后重新尝试"
             }));
-        }));
+        });
     }
     if (document.getElementById(OPERATE_STATE_ID)) {
         if (!isNoFirst) {
             return null;
         }
         else {
-            return new Promise((function (resolve, reject) {
+            return new Promise(function (resolve, reject) {
                 var timeId = setInterval(function () {
                     var promise = operate(errorJudgeFun, formName, false);
                     if (promise == null) {
                         return;
                     }
                     clearInterval(timeId);
-                    promise.then(function (value) {
+                    promise
+                        .then(function (value) {
                         resolve(value);
                     })["catch"](function (err) {
                         console.log("内部异常");
                         reject(err);
                     });
                 }, 1000);
-            }));
+            });
         }
     }
     var operateStateFlag = document.createElement("div");
@@ -218,7 +227,7 @@ function crossOperate(formName, iframe, operateStateFlag, result, errorJudgeFun)
             }
         });
     }
-    return new Promise((function (resolve, reject) {
+    return new Promise(function (resolve, reject) {
         var timeId = undefined;
         domExtends_1.elementRemoveEvent(window, "message");
         domExtends_1.elementAddEvent(window, "message", function (e) {
@@ -283,7 +292,7 @@ function crossOperate(formName, iframe, operateStateFlag, result, errorJudgeFun)
             }
         });
         timeId = formSubmit(iframe, formsArray, 0, reject);
-    }));
+    });
 }
 /**
  * 表单提交
@@ -320,6 +329,9 @@ var formSubmit = function (iframe, formsArray, resultLength, reject) {
  * @param reject 错误回调
  */
 var startTimeOut = function (timeOut, formName, nameSign, successLength, totalOperateLength, reject) {
+    if (timeOut <= 0) {
+        return;
+    }
     var timeOutId = setTimeout(function () {
         clearTimeout(timeOutId);
         domExtends_1.removeElementsByName(formName);
