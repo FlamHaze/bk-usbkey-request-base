@@ -31,7 +31,7 @@ export default [
         input: "./dist/lib/index.js",
         output: {
             file: `./dist/bk-usbkey-request-base-iife-${pkg.version}.min.js`,
-            name: "bkUsbkeyRequestBase",
+            name: "bkUsbkeyReqBasse",
             format: "iife"
         },
         plugins: [
@@ -43,7 +43,7 @@ export default [
         input: "./dist/lib/index.js",
         output: {
             file: `./dist/bk-usbkey-request-base-umd-${pkg.version}.min.js`,
-            name: "bkUsbkeyRequestBase",
+            name: "bkUsbkeyReqBasse",
             format: "umd"
         },
         plugins: [

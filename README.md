@@ -53,7 +53,7 @@ yarn add bk-usbkey-request-base
 <script src="https://cdn.jsdelivr.net/npm/es6-promise@4/dist/es6-promise.auto.js"></script> 
 <script src="https://raw.githubusercontent.com/SuLinXin66/bk-usbkey-request-base/master/dist/bk-usbkey-request-base-iife-1.0.0.min.js"></script>
 <script>
-	bkUsbkeyReq([
+	bkUsbkeyReqBase([
     {
       url: "https://127.0.0.1:8000/api/EPSAPP_Initialize",   
       data: {
@@ -73,8 +73,8 @@ yarn add bk-usbkey-request-base
 ## CommonJS规范中使用
 
 ```javascript
-const bkUsbkeyReq = require('bk-usbkey-request-base').default;
-bkUsbkeyReq([
+const bkUsbkeyReqBase = require('bk-usbkey-request-base').default;
+bkUsbkeyReqBase([
   {
     url: "https://127.0.0.1:8000/api/EPSAPP_Initialize",   
     data: {
@@ -119,7 +119,7 @@ bkUsbkeyReq([
 ## 请求方法
 
 ```typescript
-bkUsbkeyReq (params: CrossSendData | Array<CrossSendData>, errorJudgeFun?: (jsonData: any, strData: string) => boolean): Promise<CrossResponseMap<CrossResponse>> | null;
+bkUsbkeyReqBase (params: CrossSendData | Array<CrossSendData>, errorJudgeFun?: (jsonData: any, strData: string) => boolean): Promise<CrossResponseMap<CrossResponse>> | null;
 ```
 
 方法参数:
