@@ -131,7 +131,7 @@ exports.addForm = addForm;
  * 具体操作.
  */
 function operate(errorJudgeFun, formName, isNoFirst) {
-    if (errorJudgeFun === void 0) { errorJudgeFun = function () { return true; }; }
+    if (errorJudgeFun === void 0) { errorJudgeFun = function () { return false; }; }
     if (isNoFirst === void 0) { isNoFirst = true; }
     return operateForm(errorJudgeFun, formName, isNoFirst);
 }

@@ -157,7 +157,7 @@ export function addForm(params: CrossSendData, formName: string) {
  * 具体操作.
  */
 export function operate(
-  errorJudgeFun: (jsonData: any, strData: string) => boolean = () => true,
+  errorJudgeFun: (jsonData: any, strData: string) => boolean = () => false,
   formName: string,
   isNoFirst: boolean = true
 ): Promise<CrossResponseMap<CrossResponse>> | null {
