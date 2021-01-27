@@ -8,7 +8,7 @@ export default [
     {
         input: "./dist/lib/index.js",
         output: {
-            file: `./dist/bk-usbkey-request-base-amd-${pkg.version}.min.js`,
+            file: `./dist/bk-usbkey-request-base-amd.min.js`,
             format: "amd"
         },
         plugins: [
@@ -19,7 +19,7 @@ export default [
     {
         input: "./dist/lib/index.js",
         output: {
-            file: `./dist/bk-usbkey-request-base-cjs-${pkg.version}.min.js`,
+            file: `./dist/bk-usbkey-request-base-cjs.min.js`,
             format: "cjs"
         },
         plugins: [
@@ -30,8 +30,8 @@ export default [
     {
         input: "./dist/lib/index.js",
         output: {
-            file: `./dist/bk-usbkey-request-base-iife-${pkg.version}.min.js`,
-            name: "bkUsbkeyReqBasse",
+            file: `./dist/bk-usbkey-request-base-iife.min.js`,
+            name: "bkUsbkeyReqBase",
             format: "iife"
         },
         plugins: [
@@ -42,8 +42,8 @@ export default [
     {
         input: "./dist/lib/index.js",
         output: {
-            file: `./dist/bk-usbkey-request-base-umd-${pkg.version}.min.js`,
-            name: "bkUsbkeyReqBasse",
+            file: `./dist/bk-usbkey-request-base-umd.min.js`,
+            name: "bkUsbkeyReqBase",
             format: "umd"
         },
         plugins: [

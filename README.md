@@ -17,15 +17,15 @@
 ### 浏览器中使用
 
 ```html
-<script src="https://raw.githubusercontent.com/SuLinXin66/bk-usbkey-request-base/master/dist/bk-usbkey-request-base-iife-1.0.3.min.js"></script>
+<script src="https://raw.githubusercontent.com/SuLinXin66/bk-usbkey-request-base/master/dist/bk-usbkey-request-base-iife.min.js"></script>
 ```
 
 <font color=red>**注: 因本库采用es6 Promise对象, 如果要兼容IE系列浏览器请引用如下js来支持Promise对象**</font>
 
 ```html
-<script src="https://cdn.jsdelivr.net/npm/es6-promise@4/dist/es6-promise.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/es6-promise@4/dist/es6-promise.auto.js"></script> 
-<script src="https://raw.githubusercontent.com/SuLinXin66/bk-usbkey-request-base/master/dist/bk-usbkey-request-base-iife-1.0.3.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/es6-promise@4/dist/es6-promise.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/es6-promise@4/dist/es6-promise.auto.min.js"></script> 
+<script src="https://raw.githubusercontent.com/SuLinXin66/bk-usbkey-request-base/master/dist/bk-usbkey-request-base-iife-ie.min.js"></script>
 ```
 
 ###  npm中使用
@@ -49,9 +49,9 @@ yarn add @byzk/usbkey-request-base
 ## 浏览器中使用示例
 
 ```html
-<script src="https://cdn.jsdelivr.net/npm/es6-promise@4/dist/es6-promise.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/es6-promise@4/dist/es6-promise.auto.js"></script> 
-<script src="https://raw.githubusercontent.com/SuLinXin66/bk-usbkey-request-base/master/dist/bk-usbkey-request-base-iife-1.0.3.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/es6-promise@4/dist/es6-promise.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/es6-promise@4/dist/es6-promise.auto.min.js"></script> 
+<script src="https://raw.githubusercontent.com/SuLinXin66/bk-usbkey-request-base/master/dist/bk-usbkey-request-base-iife-ie.min.js"></script>
 <script>
   bkUsbkeyReqBase([
     {
