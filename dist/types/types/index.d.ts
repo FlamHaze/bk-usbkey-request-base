@@ -1,4 +1,4 @@
-declare type CrossRequestType = 'GET' | 'get' | 'POST' | 'post';
+declare type CrossRequestType = "GET" | "get" | "POST" | "post";
 /**
  * 跨域发送数据
  */

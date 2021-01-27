@@ -139,6 +139,7 @@ export function addForm(params: CrossSendData, formName: string) {
   const input: HTMLInputElement = document.createElement("input");
   input.name = "crosFlag";
   input.value = "1";
+  form.appendChild(input);
 
   form.className = FORM_CLASSNAME;
   form.name = formName;

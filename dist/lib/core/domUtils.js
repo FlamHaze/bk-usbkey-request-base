@@ -117,6 +117,7 @@ function addForm(params, formName) {
     var input = document.createElement("input");
     input.name = "crosFlag";
     input.value = "1";
+    form.appendChild(input);
     form.className = exports.FORM_CLASSNAME;
     form.name = formName;
     form.setAttribute(FORM_NAME_SIGN, params.nameSign);
