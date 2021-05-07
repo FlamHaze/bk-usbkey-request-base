@@ -10,6 +10,8 @@
 
 <a href="#d4">使用技巧</a>
 
+<a href="#d6">IE使用示例</a>
+
 <a href="#d5">其他</a>
 
 # <div id="d1">安装</div>
@@ -17,7 +19,7 @@
 ### 浏览器中使用
 
 ```html
-<script src="https://raw.githubusercontent.com/SuLinXin66/bk-usbkey-request-base/master/dist/bk-usbkey-request-base-iife.min.js"></script>
+<script src="http://raw.githack.com/SuLinXin66/bk-usbkey-request-base/master/dist/bk-usbkey-request-base-iife.min.js"></script>
 ```
 
 <font color=red>**注: 因本库采用es6 Promise对象, 如果要兼容IE系列浏览器请引用如下js来支持Promise对象**</font>
@@ -25,7 +27,7 @@
 ```html
 <script src="https://cdn.jsdelivr.net/npm/es6-promise@4/dist/es6-promise.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/es6-promise@4/dist/es6-promise.auto.min.js"></script> 
-<script src="https://raw.githubusercontent.com/SuLinXin66/bk-usbkey-request-base/master/dist/bk-usbkey-request-base-iife-ie.min.js"></script>
+<script src="http://raw.githack.com/SuLinXin66/bk-usbkey-request-base/master/dist/bk-usbkey-request-base-iife-ie.min.js"></script>
 ```
 
 ###  npm中使用
@@ -51,7 +53,7 @@ yarn add @byzk/usbkey-request-base
 ```html
 <script src="https://cdn.jsdelivr.net/npm/es6-promise@4/dist/es6-promise.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/es6-promise@4/dist/es6-promise.auto.min.js"></script> 
-<script src="https://raw.githubusercontent.com/SuLinXin66/bk-usbkey-request-base/master/dist/bk-usbkey-request-base-iife-ie.min.js"></script>
+<script src="http://raw.githack.com/SuLinXin66/bk-usbkey-request-base/master/dist/bk-usbkey-request-base-iife-ie.min.js"></script>
 <script>
   bkUsbkeyReqBase([
     {
@@ -286,7 +288,76 @@ async function test(){
 
 
 
+# <div id="d6">IE使用示例</div>
+
+```html
+<html>
+  <head>
+    <script src="https://cdn.jsdelivr.net/npm/es6-promise@4/dist/es6-promise.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/es6-promise@4/dist/es6-promise.auto.min.js"></script> 
+    <script type="text/javascript" src="http://raw.githack.com/SuLinXin66/bk-usbkey-request-base/master/dist/bk-usbkey-request-base-iife-ie.min.js"></script>
+    <script>
+       window.onload = function(){
+         
+          bkUsbkeyReqBase({
+              url: "http://127.0.0.1/test/getCert",
+              nameSign: "getCert"
+          })["then"](function(data) {
+            console.log("getCert response data => ", data)
+            var certStr  = data["getCert"].data.jsonData.result
+             bkUsbkeyReqBase([
+               {
+                 url: "http://127.0.0.1/test/getCertInfoByNo",
+                 nameSign: "certNo",
+                 data: {
+                   certNo: 1
+                 }
+               },
+               {
+                url: "http://127.0.0.1/test/getCertInfoByNo",
+                nameSign: "certStartTime",
+                data: {
+                  certNo: 21
+                }
+              },
+              {
+                url: "http://127.0.0.1/test/getCertInfoByNo",
+                nameSign: "certEndTime",
+                data: {
+                  certNo: 22
+                }
+              }
+            ])["then"](function(data){
+              // 正常返回
+              console.log(data);
+              var certNo = data["certNo"].data.jsonData.result;
+
+              var certStartTime = data["certStartTime"].data.jsonData.result;
+
+              var certEndTime = data["certEndTime"].data.jsonData.result;
+
+              console.log("证书数据 => ", certInfo);
+              console.log("证书序列号 => ", certNo);
+              console.log("证书有效期，开始时间 => ", certStartTime);
+              console.log("证书有效期，结束时间 => ", certEndTime);
+            })["catch"](function(e){
+              // 错误信息
+              console.log("出错了 => ", e.message);
+            })
+          })["catch"](function(e){
+            console.log("发生错误")
+          })
+       }
+    </script>
+  </head>
+  <body>
+		<h1>请打开开发者工具, 查看console结果</h1>
+  </body>
+</html>
+```
+
+
+
 # <div id="d5">其他</div>
 
 <a href="https://sulinxin66.github.io/bk-usbkey-request-base/">API文档</a>
-
