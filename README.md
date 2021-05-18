@@ -293,6 +293,7 @@ async function test(){
 ```html
 <html>
   <head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/json2/20110223/json2.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/es6-promise@4/dist/es6-promise.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/es6-promise@4/dist/es6-promise.auto.min.js"></script> 
     <script type="text/javascript" src="http://raw.githack.com/SuLinXin66/bk-usbkey-request-base/master/dist/bk-usbkey-request-base-iife-ie.min.js"></script>

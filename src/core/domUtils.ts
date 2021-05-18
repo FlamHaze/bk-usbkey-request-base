@@ -53,7 +53,7 @@ export function addIframe(): string {
   const formCalcEle = document.getElementById(FORM_CALC_ID);
   if (formCalcEle) {
     const nowNumber = parseInt(
-      ((formCalcEle as unknown) as HTMLInputElement).value
+      (formCalcEle as unknown as HTMLInputElement).value
     );
     formName = `${FORM_NAME_PRE}${nowNumber}`;
   } else {
@@ -65,7 +65,7 @@ export function addIframe(): string {
   }
 
   const { body } = document;
-  const iframe: HTMLIFrameElement = document.createElement("iframe");
+  let iframe: HTMLIFrameElement = createElement("iframe", IFRAME_NAME);
   iframe.id = IFRAME_ID;
   iframe.name = IFRAME_NAME;
   iframe.style.display = "none";
@@ -81,10 +81,10 @@ export function addFormCalc(): number {
   const formCalcEle = document.getElementById(FORM_CALC_ID);
   if (formCalcEle) {
     const nowNumber = parseInt(
-      ((formCalcEle as unknown) as HTMLInputElement).value
+      (formCalcEle as unknown as HTMLInputElement).value
     );
-    ((formCalcEle as unknown) as HTMLInputElement).value = ((nowNumber +
-      1) as unknown) as string;
+    (formCalcEle as unknown as HTMLInputElement).value = (nowNumber +
+      1) as unknown as string;
     return nowNumber + 1;
   } else {
     const input = document.createElement("input");
@@ -103,14 +103,14 @@ export function subOneFormCalc() {
   const formCalcEle = document.getElementById(FORM_CALC_ID);
   if (formCalcEle) {
     const nowNumber = parseInt(
-      ((formCalcEle as unknown) as HTMLInputElement).value
+      (formCalcEle as unknown as HTMLInputElement).value
     );
     if (nowNumber == 0) {
-      document.removeChild(formCalcEle);
+      document.body.removeChild(formCalcEle);
       return;
     }
-    ((formCalcEle as unknown) as HTMLInputElement).value = ((nowNumber -
-      1) as unknown) as string;
+    (formCalcEle as unknown as HTMLInputElement).value = (nowNumber -
+      1) as unknown as string;
   }
 }
 
@@ -120,7 +120,7 @@ export function subOneFormCalc() {
  * @param formName
  */
 export function addForm(params: CrossSendData, formName: string) {
-  const form: HTMLFormElement = document.createElement("form");
+  const form: HTMLFormElement = createElement("form", formName);
 
   form.action = params.url;
   form.method = (params.method as string).toUpperCase();
@@ -130,13 +130,13 @@ export function addForm(params: CrossSendData, formName: string) {
     if (key == "crosFlag") {
       continue;
     }
-    const input: HTMLInputElement = document.createElement("input");
+    const input: HTMLInputElement = createElement("input", key);
     input.name = key;
     input.value = params.data[key];
     form.appendChild(input);
   }
 
-  const input: HTMLInputElement = document.createElement("input");
+  const input: HTMLInputElement = createElement("input", "crosFlag");
   input.name = "crosFlag";
   input.value = "1";
   form.appendChild(input);
@@ -217,7 +217,7 @@ export function operateForm(
 
   return crossOperate(
     formName,
-    (iframe as unknown) as HTMLIFrameElement,
+    iframe as unknown as HTMLIFrameElement,
     operateStateFlag,
     result,
     errorJudgeFun
@@ -251,7 +251,7 @@ function crossOperate(
 
   const formsLength = forms.length;
   if (formsLength <= 0) {
-    document.removeChild(operateStateFlag);
+    document.body.removeChild(operateStateFlag);
     return null;
   }
 
@@ -266,10 +266,10 @@ function crossOperate(
     }
     formsArray.sort((e1, e2) => {
       const e1Num = parseInt(
-        ((e1 as unknown) as HTMLFormElement).getAttribute("index") as string
+        (e1 as unknown as HTMLFormElement).getAttribute("index") as string
       );
       const e2Num = parseInt(
-        ((e2 as unknown) as HTMLFormElement).getAttribute("index") as string
+        (e2 as unknown as HTMLFormElement).getAttribute("index") as string
       );
 
       if (e1Num > e2Num) {
@@ -447,3 +447,21 @@ const startTimeOut = function (
   }, timeOut);
   return timeOutId;
 };
+
+function isIE() {
+  //ie?
+  if (!!(window as any).ActiveXObject || "ActiveXObject" in window) {
+    return true;
+  } else {
+    return false;
+  }
+}
+
+function createElement(targetName: string, name: string): any {
+  if (isIE()) {
+    return document.createElement(
+      `<${targetName} name="${name}"></${targetName}>`
+    );
+  }
+  return document.createElement(targetName);
+}

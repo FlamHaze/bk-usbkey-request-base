@@ -1,6 +1,6 @@
 {
   "name": "@byzk/usbkey-request-base",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "博雅中科usbkey服务跨域解决方案",
   "author": "苏林鑫 <15210204903@163.com>",
   "main": "./dist/lib/index.js",
@@ -13,7 +13,7 @@
     "prebuild": "rm -rf dist docs",
     "rollup:es": "rollup ./dist/lib/index.js -o ./dist/index-es-1.0.0.js -f es",
     "rollup:other": "rollup -c rollup.config.ts",
-    "build": "tsc && yarn run docs",
+    "build": "tsc && yarn run docs && npm run rollup:other",
     "build:win": "tsc && npm run rollup:other",
     "postbuild": "npm run rollup:other && cd dist && cp bk-usbkey-request-base-iife.min.js bk-usbkey-request-base-iife-ie.min.js && sed -i '' \"s/\\.default/['default']/g\" 'bk-usbkey-request-base-iife-ie.min.js' && sed -i '' 's/\\.catch/[\"catch\"]/g' 'bk-usbkey-request-base-iife-ie.min.js'"
   },

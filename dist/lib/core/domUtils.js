@@ -49,7 +49,7 @@ function addIframe() {
         return formName;
     }
     var body = document.body;
-    var iframe = document.createElement("iframe");
+    var iframe = createElement("iframe", exports.IFRAME_NAME);
     iframe.id = exports.IFRAME_ID;
     iframe.name = exports.IFRAME_NAME;
     iframe.style.display = "none";
@@ -87,7 +87,7 @@ function subOneFormCalc() {
     if (formCalcEle) {
         var nowNumber = parseInt(formCalcEle.value);
         if (nowNumber == 0) {
-            document.removeChild(formCalcEle);
+            document.body.removeChild(formCalcEle);
             return;
         }
         formCalcEle.value = (nowNumber -
@@ -101,7 +101,7 @@ exports.subOneFormCalc = subOneFormCalc;
  * @param formName
  */
 function addForm(params, formName) {
-    var form = document.createElement("form");
+    var form = createElement("form", formName);
     form.action = params.url;
     form.method = params.method.toUpperCase();
     form.style.display = "none";
@@ -109,12 +109,12 @@ function addForm(params, formName) {
         if (key == "crosFlag") {
             continue;
         }
-        var input_1 = document.createElement("input");
+        var input_1 = createElement("input", key);
         input_1.name = key;
         input_1.value = params.data[key];
         form.appendChild(input_1);
     }
-    var input = document.createElement("input");
+    var input = createElement("input", "crosFlag");
     input.name = "crosFlag";
     input.value = "1";
     form.appendChild(input);
@@ -201,7 +201,7 @@ function crossOperate(formName, iframe, operateStateFlag, result, errorJudgeFun)
     var forms = getFormEles(formName);
     var formsLength = forms.length;
     if (formsLength <= 0) {
-        document.removeChild(operateStateFlag);
+        document.body.removeChild(operateStateFlag);
         return null;
     }
     var formsArray = [];
@@ -362,3 +362,18 @@ var startTimeOut = function (timeOut, formName, nameSign, successLength, totalOp
     }, timeOut);
     return timeOutId;
 };
+function isIE() {
+    //ie?
+    if (!!window.ActiveXObject || "ActiveXObject" in window) {
+        return true;
+    }
+    else {
+        return false;
+    }
+}
+function createElement(targetName, name) {
+    if (isIE()) {
+        return document.createElement("<" + targetName + " name=\"" + name + "\"></" + targetName + ">");
+    }
+    return document.createElement(targetName);
+}
