@@ -449,12 +449,18 @@ const startTimeOut = function (
 };
 
 function isIE() {
-  //ie?
-  if (!!(window as any).ActiveXObject || "ActiveXObject" in window) {
-    return true;
-  } else {
-    return false;
+  var DEFAULT_VERSION = 8.0;
+  var ua:any = navigator.userAgent.toLowerCase();
+  var isIE = ua.indexOf("msie") > -1;
+  var safariVersion;
+  if (isIE) {
+    safariVersion = ua.match(/msie ([\d.]+)/)[1];
   }
+  if (safariVersion <= DEFAULT_VERSION) {
+   return true
+  }
+
+  return false
 }
 
 function createElement(targetName: string, name: string): any {
